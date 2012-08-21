@@ -127,6 +127,69 @@
 }
 
 
+#pragma mark - Instance SVProgressHUD
+
+- (void)show {
+    [self showWithStatus:nil maskType:SVProgressHUDMaskTypeNone networkIndicator:NO];
+}
+
+- (void)showWithStatus:(NSString *)status {
+    [self showWithStatus:status maskType:SVProgressHUDMaskTypeNone networkIndicator:NO];
+}
+
+- (void)showWithMaskType:(SVProgressHUDMaskType)aMaskType {
+    [self showWithStatus:nil maskType:aMaskType networkIndicator:NO];
+}
+
+- (void)showWithStatus:(NSString*)status maskType:(SVProgressHUDMaskType)aMaskType {
+    [self showWithStatus:status maskType:aMaskType networkIndicator:NO];
+}
+
+#pragma mark - Show then dismiss methods
+
+- (void)showSuccessWithStatus:(NSString *)string {
+    [self showImage:[UIImage imageNamed:@"SVProgressHUD.bundle/success.png"] status:string];
+}
+
+- (void)showSuccessWithStatus:(NSString *)string duration:(NSTimeInterval)duration {
+    [self show];
+    [self showImage:[UIImage imageNamed:@"SVProgressHUD.bundle/success.png"] status:string];
+}
+
+- (void)showErrorWithStatus:(NSString *)string {
+    [self showImage:[UIImage imageNamed:@"SVProgressHUD.bundle/error.png"] status:string];
+}
+
+- (void)showErrorWithStatus:(NSString *)string duration:(NSTimeInterval)duration {
+    [self show];
+    [self showImage:[UIImage imageNamed:@"SVProgressHUD.bundle/error.png"] status:string];
+}
+
+- (void)showImage:(UIImage *)image status:(NSString *)string {
+    [self showImage:image status:string duration:1.0];
+}
+
+
+#pragma mark - Dismiss Methods
+
+- (void)dismissWithSuccess:(NSString*)string {
+	[self showSuccessWithStatus:string];
+}
+
+- (void)dismissWithSuccess:(NSString *)string afterDelay:(NSTimeInterval)seconds {
+    [self showImage:[UIImage imageNamed:@"SVProgressHUD.bundle/success.png"] status:string duration:seconds];
+}
+
+- (void)dismissWithError:(NSString*)string {
+	[self showErrorWithStatus:string];
+}
+
+- (void)dismissWithError:(NSString *)string afterDelay:(NSTimeInterval)seconds {
+    [self showImage:[UIImage imageNamed:@"SVProgressHUD.bundle/error.png"] status:string duration:seconds];
+}
+
+
+
 #pragma mark - Instance Methods
 
 - (id)initWithFrame:(CGRect)frame {
