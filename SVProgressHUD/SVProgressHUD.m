@@ -446,8 +446,8 @@
 
 
 - (void)showImage:(UIImage *)image status:(NSString *)string duration:(NSTimeInterval)duration {
-    if(![SVProgressHUD isVisible])
-        [SVProgressHUD show];
+    if(![self isVisible])
+        [self show];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         self.imageView.image = image;
@@ -493,6 +493,9 @@
     return ([SVProgressHUD sharedView].alpha == 1);
 }
 
+- (BOOL)isVisible {
+    return (self.alpha == 1);
+}
 
 #pragma mark - Getters
 

@@ -81,7 +81,9 @@
 #pragma mark - Show then dismiss methods
 
 + (void)showSuccessWithStatus:(NSString *)string
-                          identifier:(NSString *)identifier {
+                   identifier:(NSString *)identifier {
+    //[NMProgressHUDManager dismissWithIdentifier:string];
+    //[NMProgressHUDManager showWithIdentifier:string];
     [[NMProgressHUDManager viewWithIdentifier:identifier] showSuccessWithStatus:string];
 }
 
