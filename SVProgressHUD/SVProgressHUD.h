@@ -23,9 +23,12 @@ typedef NSUInteger SVProgressHUDMaskType;
 
 + (void)show;
 + (void)showWithMaskType:(SVProgressHUDMaskType)maskType;
-
 + (void)showWithStatus:(NSString*)status;
 + (void)showWithStatus:(NSString*)status maskType:(SVProgressHUDMaskType)maskType;
+
++ (void)showProgress:(CGFloat)progress;
++ (void)showProgress:(CGFloat)progress status:(NSString*)status;
++ (void)showProgress:(CGFloat)progress status:(NSString*)status maskType:(SVProgressHUDMaskType)maskType;
 
 + (void)setStatus:(NSString*)string; // change the HUD loading status while it's showing
 
@@ -37,7 +40,6 @@ typedef NSUInteger SVProgressHUDMaskType;
 + (void)dismiss;
 
 + (BOOL)isVisible;
-
 
 // SVProgressHUD not static
 - (void)show;
@@ -54,7 +56,6 @@ typedef NSUInteger SVProgressHUDMaskType;
 - (void)showImage:(UIImage*)image status:(NSString*)status; // use 28x28 white pngs
 
 - (void)dismiss;
-
 
 // deprecated June 9th; custom durations encourages uncessarily long status strings (inappropriate, use UIAlertView instead)
 + (void)showSuccessWithStatus:(NSString *)string duration:(NSTimeInterval)duration DEPRECATED_ATTRIBUTE;
