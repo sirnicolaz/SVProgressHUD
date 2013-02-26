@@ -9,10 +9,6 @@
 #import "NMProgressHUDManager.h"
 #import <QuartzCore/QuartzCore.h>
 
-#if ! __has_feature(objc_arc)
-#error You need to either convert your project to ARC or add the -fobjc-arc compiler flag to SVProgressHUD.m.
-#endif
-
 @interface NMProgressHUDManager ()
 @property (nonatomic, strong) NSMutableDictionary *shownProgressViews;
 @end
