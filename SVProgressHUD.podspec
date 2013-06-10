@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
                   'Tweetie for iOS. The success and error icons are from Glyphish.'
 
   s.source_files = 'SVProgressHUD/*.{h,m}'
-  s.clean_paths  = 'Demo'
   s.framework    = 'QuartzCore'
   s.resources    = 'SVProgressHUD/SVProgressHUD.bundle'
   s.requires_arc = true
